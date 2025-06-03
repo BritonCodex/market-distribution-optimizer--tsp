@@ -1,0 +1,14 @@
+#   Responsibility: Let the user choose a starting town from the list.
+
+# Choose starting point
+print("\n Choose starting town from the list below:")
+for i, town in enumerate(town_names):
+    print(f"{i+1}. {town}")
+try:
+    start_index = int(input(" Enter the number of the starting town: ")) - 1
+    if not 0 <= start_index < len(town_names):
+        raise ValueError
+except ValueError:
+    sys.exit(" Invalid input. Please enter a valid number from the list.")
+
+start = town_names[start_index]
