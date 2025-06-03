@@ -81,6 +81,20 @@ This project is a Python-based delivery route optimizer that helps plan the shor
 OpenRouteService (ORS) is an open-source routing service powered by OpenStreetMap (OSM) data.
 It provides tools and APIs for calculating routes, directions, and travel distances for different modes of transport.
 
+Function used in code: client.pelias_search(...)
+
+Purpose:
+To convert town names entered by the user (e.g., "Nairobi") into geographic coordinates (longitude, latitude). These coordinates are required for distance calculations.
+
+```python
+result = client.pelias_search(text=place_name + ", Kenya", size=1)
+coords = result['features'][0]['geometry']['coordinates']
+```
+
+
+This queries ORS’s Pelias geocoding API and returns the coordinates for each town.
+
+
 This project requires an OpenRouteService API key.
 
 - Sign up at: https://openrouteservice.org/dev/#/signup
