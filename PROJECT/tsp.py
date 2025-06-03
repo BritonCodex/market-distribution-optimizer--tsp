@@ -56,17 +56,18 @@ coordinates = [locations[t] for t in town_names]
 
 # -------- DISTANCE MATRIX --------
 print("\n🔄 Fetching real road distances from ORS...")
+              
 try:
-    matrix = distance_matrix(client, locations=coordinates, profile='driving-car', metrics=['distance'], units='km')
+    matrix = distance_matrix(client, locations=coordinates, profile='driving-car', metrics=['distance'], units='km')# asks for distsnces between locations while driving a car
 except Exception as e:
-    sys.exit(f"❌ Failed to fetch distance matrix: {e}")
+    sys.exit(f"❌ Failed to fetch distance matrix: {e}") #stops the  program
 
 raw_distances = matrix['distances']
 
 distance_dict = {
-    town_names[i]: {
+    town_names[i]:  { #starting town i and destination town j
         town_names[j]: raw_distances[i][j] for j in range(len(town_names)) if i != j
-    } for i in range(len(town_names))
+    } for i in range(len(town_names)) #goes through every time
 }
 
 # -------- TSP SOLVER --------
