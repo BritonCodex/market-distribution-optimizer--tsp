@@ -1,26 +1,40 @@
 # Traveling Salesman Problem (TSP) Route Optimizer in Kenya
-import openrouteservice
-from openrouteservice.distance_matrix import distance_matrix
-import itertools
-import folium
-import webbrowser
-import sys
 
-# Initialize ORS client
-client = openrouteservice.Client(key='5b3ce3597851110001cf62482075cef99d83433cab8da1c60530dd0a')
+# --- Imports ---
+import openrouteservice  # For accessing OpenRouteService API for geocoding and routing
+from openrouteservice.distance_matrix import distance_matrix  # For fetching distance matrices
+import itertools         # For generating route permutations (TSP brute-force)
+import folium            # For interactive map visualization
+import webbrowser        # To open the generated map in a browser
+import sys  
+import os
+from  dotenv import load_dotenv  # For loading environment variables from .env file
+# --- Environment Setup ---
+# Ensure you have the required packages installed:
+load_dotenv()
 
-# -------- USER INPUT --------
-print("🛣️ Enter town names separated by commas (e.g., Nairobi, Meru, Nyeri):")
+
+# Replace the API key below with your own OpenRouteService key if needed.
+ORS_API_KEY = os.getenv("ORS_API_KEY")  # Ensure you have set this environment variable
+if not ORS_API_KEY:
+    sys.exit("❌ Please set the ORS_API_KEY environment variable with your OpenRouteService API key.")
+client = openrouteservice.Client(key=ORS_API_KEY)
+
+load_dotenv()
+# --- User Input: Town Names ---
+print("🛣️ Enter town names separated by commas (e.g., Nairobi, Meru, Nyeri,Muranga , Thika,,  Ruiru):")
 input_towns = input("📍 Towns: ").split(',')
+# Clean and standardize town names (strip whitespace, capitalize)
 town_names = [t.strip().title() for t in input_towns if t.strip()]
 
+# --- Input Validation ---
 if len(town_names) < 2:
-    sys.exit("❌ Please enter at least two towns.")
+    sys.exit("❌ Please enter at least two towns.")  # Need at least two towns for TSP
 
 if len(town_names) > 10:
     print("⚠️ Warning: Too many towns. This could take a long time due to TSP complexity (factorial time).")
 
-# Choose starting point
+# --- User Input: Starting Town Selection ---
 print("\n🎯 Choose starting town from the list below:")
 for i, town in enumerate(town_names):
     print(f"{i+1}. {town}")
@@ -31,6 +45,7 @@ try:
 except ValueError:
     sys.exit("❌ Invalid input. Please enter a valid number from the list.")
 
+# Assign the starting town based on user selection
 start = town_names[start_index]
 
 # -------- COORDINATE LOOKUP --------

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1031e458205ed547b2d5d4f5ca1332ee {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed; bottom: 40px; left: 40px; width: 290px; height: auto;
+    background-color: white; border: 2px solid #666; z-index: 9999;
+    padding: 12px; font-size: 14px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+">
+<b>🚚 Optimal Route:</b><br>
+Ruiru → Thika → Nairobi → Meru → Nyeri → Muranga → Ruiru<br>
+<b>Total Distance:</b> 520.36 km
+</div>
+    
+            <div class="folium-map" id="map_1031e458205ed547b2d5d4f5ca1332ee" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1031e458205ed547b2d5d4f5ca1332ee = L.map(
+                "map_1031e458205ed547b2d5d4f5ca1332ee",
+                {
+                    center: [-0.7, 37.11667],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_178528acfdc8277bbdfb30d1b8d4dcdc = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_178528acfdc8277bbdfb30d1b8d4dcdc.addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var marker_ade2b7722738ae2130ac76e327287392 = L.marker(
+                [-0.7, 37.11667],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var icon_747c3513c861f3096f98286c6fc40a66 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "play",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ea9d5a4de7a3de8662991a923aab9943 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0dcae225292208de363c361ea4174846 = $(`<div id="html_0dcae225292208de363c361ea4174846" style="width: 100.0%; height: 100.0%;">Start: Ruiru</div>`)[0];
+                popup_ea9d5a4de7a3de8662991a923aab9943.setContent(html_0dcae225292208de363c361ea4174846);
+            
+        
+
+        marker_ade2b7722738ae2130ac76e327287392.bindPopup(popup_ea9d5a4de7a3de8662991a923aab9943)
+        ;
+
+        
+    
+    
+            marker_ade2b7722738ae2130ac76e327287392.bindTooltip(
+                `<div>
+                     Start: Ruiru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ade2b7722738ae2130ac76e327287392.setIcon(icon_747c3513c861f3096f98286c6fc40a66);
+            
+    
+            var marker_033585f60fb56952bb849d73d6827493 = L.marker(
+                [-1.03326, 37.06933],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var div_icon_dadd61d7abd3235466b16a7334e7d230 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 14pt; color: #0033cc;\"\u003e\u003cb\u003e2\u003c/b\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_7e672de04beeb89a8490dbf4c6517f6e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57a24801654ff51a91cc9450ecd0d612 = $(`<div id="html_57a24801654ff51a91cc9450ecd0d612" style="width: 100.0%; height: 100.0%;">2. Thika</div>`)[0];
+                popup_7e672de04beeb89a8490dbf4c6517f6e.setContent(html_57a24801654ff51a91cc9450ecd0d612);
+            
+        
+
+        marker_033585f60fb56952bb849d73d6827493.bindPopup(popup_7e672de04beeb89a8490dbf4c6517f6e)
+        ;
+
+        
+    
+    
+            marker_033585f60fb56952bb849d73d6827493.bindTooltip(
+                `<div>
+                     Step 2: Thika
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_033585f60fb56952bb849d73d6827493.setIcon(div_icon_dadd61d7abd3235466b16a7334e7d230);
+            
+    
+            var marker_60c4d24c0a814621c3d58d91e56f167a = L.marker(
+                [-1.28333, 36.81667],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var div_icon_d21b732a0ad896a974bbbcd1a96dcbbe = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 14pt; color: #0033cc;\"\u003e\u003cb\u003e3\u003c/b\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_ffd4fee4ba1051b49d522d98ba5388a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd32829b619a847ebbec991cada97656 = $(`<div id="html_cd32829b619a847ebbec991cada97656" style="width: 100.0%; height: 100.0%;">3. Nairobi</div>`)[0];
+                popup_ffd4fee4ba1051b49d522d98ba5388a9.setContent(html_cd32829b619a847ebbec991cada97656);
+            
+        
+
+        marker_60c4d24c0a814621c3d58d91e56f167a.bindPopup(popup_ffd4fee4ba1051b49d522d98ba5388a9)
+        ;
+
+        
+    
+    
+            marker_60c4d24c0a814621c3d58d91e56f167a.bindTooltip(
+                `<div>
+                     Step 3: Nairobi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_60c4d24c0a814621c3d58d91e56f167a.setIcon(div_icon_d21b732a0ad896a974bbbcd1a96dcbbe);
+            
+    
+            var marker_59ae43800d28de65c470c8d5388f8ee6 = L.marker(
+                [0.04626, 37.65587],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var div_icon_cabac22908a5bf13db4243965baf8bfb = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 14pt; color: #0033cc;\"\u003e\u003cb\u003e4\u003c/b\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_d968792a1b6a25e9a5e6236e5b94ec7e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2eef3dd802077fb74ec3b36dce54a99d = $(`<div id="html_2eef3dd802077fb74ec3b36dce54a99d" style="width: 100.0%; height: 100.0%;">4. Meru</div>`)[0];
+                popup_d968792a1b6a25e9a5e6236e5b94ec7e.setContent(html_2eef3dd802077fb74ec3b36dce54a99d);
+            
+        
+
+        marker_59ae43800d28de65c470c8d5388f8ee6.bindPopup(popup_d968792a1b6a25e9a5e6236e5b94ec7e)
+        ;
+
+        
+    
+    
+            marker_59ae43800d28de65c470c8d5388f8ee6.bindTooltip(
+                `<div>
+                     Step 4: Meru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_59ae43800d28de65c470c8d5388f8ee6.setIcon(div_icon_cabac22908a5bf13db4243965baf8bfb);
+            
+    
+            var marker_6ed781bd3a4203cdb9497ffc9abd0e30 = L.marker(
+                [-0.42013, 36.94759],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var div_icon_f3b1386894e0b3f7e2ed1dbf4addf20e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 14pt; color: #0033cc;\"\u003e\u003cb\u003e5\u003c/b\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_ad4c27fbe56d01650682bf40b89cb920 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe6f67f47d57aff428e000197ba7cf14 = $(`<div id="html_fe6f67f47d57aff428e000197ba7cf14" style="width: 100.0%; height: 100.0%;">5. Nyeri</div>`)[0];
+                popup_ad4c27fbe56d01650682bf40b89cb920.setContent(html_fe6f67f47d57aff428e000197ba7cf14);
+            
+        
+
+        marker_6ed781bd3a4203cdb9497ffc9abd0e30.bindPopup(popup_ad4c27fbe56d01650682bf40b89cb920)
+        ;
+
+        
+    
+    
+            marker_6ed781bd3a4203cdb9497ffc9abd0e30.bindTooltip(
+                `<div>
+                     Step 5: Nyeri
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6ed781bd3a4203cdb9497ffc9abd0e30.setIcon(div_icon_f3b1386894e0b3f7e2ed1dbf4addf20e);
+            
+    
+            var marker_dd58953d8240a61150f67ac2324c703f = L.marker(
+                [-0.71667, 37.15],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var div_icon_95d162d2356f5e1206731f10ad89b2f9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 14pt; color: #0033cc;\"\u003e\u003cb\u003e6\u003c/b\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_8e4dbb51263feb934f16bb3dac2f758f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d34f205b79df5ebc5f62bddbb035296d = $(`<div id="html_d34f205b79df5ebc5f62bddbb035296d" style="width: 100.0%; height: 100.0%;">6. Muranga</div>`)[0];
+                popup_8e4dbb51263feb934f16bb3dac2f758f.setContent(html_d34f205b79df5ebc5f62bddbb035296d);
+            
+        
+
+        marker_dd58953d8240a61150f67ac2324c703f.bindPopup(popup_8e4dbb51263feb934f16bb3dac2f758f)
+        ;
+
+        
+    
+    
+            marker_dd58953d8240a61150f67ac2324c703f.bindTooltip(
+                `<div>
+                     Step 6: Muranga
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd58953d8240a61150f67ac2324c703f.setIcon(div_icon_95d162d2356f5e1206731f10ad89b2f9);
+            
+    
+            var marker_332d7eff40ea9f3c6ff89e370008d96d = L.marker(
+                [-0.7, 37.11667],
+                {
+}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            var div_icon_7aed724b5ddd4ad905090e6602b9305a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 14pt; color: #0033cc;\"\u003e\u003cb\u003e7\u003c/b\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_7f761b1d4ebed69695ff3bd9aa6fb338 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_148999511810f771f6614f0a6ad791d4 = $(`<div id="html_148999511810f771f6614f0a6ad791d4" style="width: 100.0%; height: 100.0%;">7. Ruiru</div>`)[0];
+                popup_7f761b1d4ebed69695ff3bd9aa6fb338.setContent(html_148999511810f771f6614f0a6ad791d4);
+            
+        
+
+        marker_332d7eff40ea9f3c6ff89e370008d96d.bindPopup(popup_7f761b1d4ebed69695ff3bd9aa6fb338)
+        ;
+
+        
+    
+    
+            marker_332d7eff40ea9f3c6ff89e370008d96d.bindTooltip(
+                `<div>
+                     Step 7: Ruiru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_332d7eff40ea9f3c6ff89e370008d96d.setIcon(div_icon_7aed724b5ddd4ad905090e6602b9305a);
+            
+    
+            var poly_line_159b8b0ed2e449e720e9649f2400f54b = L.polyline(
+                [[-0.7, 37.11667], [-1.03326, 37.06933]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            poly_line_159b8b0ed2e449e720e9649f2400f54b.bindTooltip(
+                `<div>
+                     Ruiru → Thika: 48.5 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4964d431580ad6f222c544dc9d6625c1 = L.polyline(
+                [[-1.03326, 37.06933], [-1.28333, 36.81667]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            poly_line_4964d431580ad6f222c544dc9d6625c1.bindTooltip(
+                `<div>
+                     Thika → Nairobi: 43.3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0a24af2e9cdd40cfc1786d300846a649 = L.polyline(
+                [[-1.28333, 36.81667], [0.04626, 37.65587]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            poly_line_0a24af2e9cdd40cfc1786d300846a649.bindTooltip(
+                `<div>
+                     Nairobi → Meru: 224.9 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9f6c6c72779504327e4e36af98e93cd4 = L.polyline(
+                [[0.04626, 37.65587], [-0.42013, 36.94759]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            poly_line_9f6c6c72779504327e4e36af98e93cd4.bindTooltip(
+                `<div>
+                     Meru → Nyeri: 134.1 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_851e16de4eda896ce2ee5829d5e4f06e = L.polyline(
+                [[-0.42013, 36.94759], [-0.71667, 37.15]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            poly_line_851e16de4eda896ce2ee5829d5e4f06e.bindTooltip(
+                `<div>
+                     Nyeri → Muranga: 60.7 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ab1f6705f6c1d35048446901b14dcdad = L.polyline(
+                [[-0.71667, 37.15], [-0.7, 37.11667]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1031e458205ed547b2d5d4f5ca1332ee);
+        
+    
+            poly_line_ab1f6705f6c1d35048446901b14dcdad.bindTooltip(
+                `<div>
+                     Muranga → Ruiru: 8.9 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
