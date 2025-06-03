@@ -78,6 +78,8 @@ This project is a Python-based delivery route optimizer that helps plan the shor
 ---
 
 ## 🔐 API Key
+OpenRouteService (ORS) is an open-source routing service powered by OpenStreetMap (OSM) data.
+It provides tools and APIs for calculating routes, directions, and travel distances for different modes of transport.
 
 This project requires an OpenRouteService API key.
 
