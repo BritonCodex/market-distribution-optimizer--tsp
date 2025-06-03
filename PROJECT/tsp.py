@@ -21,25 +21,26 @@ if not ORS_API_KEY:
 client = openrouteservice.Client(key=ORS_API_KEY)
 
 load_dotenv()
+
 # --- User Input: Town Names ---
-print("🛣️ Enter town names separated by commas (e.g., Nairobi, Meru, Nyeri,Muranga , Thika,,  Ruiru):")
+print("🛣️ Enter town names separated by commas (e.g., Nairobi, Meru, Nyeri ,Muranga , Thika,,  Ruiru):")
 input_towns = input("📍 Towns: ").split(',')
 # Clean and standardize town names (strip whitespace, capitalize)
-town_names = [t.strip().title() for t in input_towns if t.strip()]
+town_names = [t.strip().title() for t in input_towns if t.strip()] #Standardize names and remove empty entries  whitespace and capitalize them
 
 # --- Input Validation ---
-if len(town_names) < 2:
+if len(town_names) < 2:# ensures atleast 2 towns are provided
     sys.exit("❌ Please enter at least two towns.")  # Need at least two towns for TSP
 
-if len(town_names) > 10:
+if len(town_names) > 10:# maximum threshold of towns
     print("⚠️ Warning: Too many towns. This could take a long time due to TSP complexity (factorial time).")
 
 # --- User Input: Starting Town Selection ---
 print("\n🎯 Choose starting town from the list below:")
-for i, town in enumerate(town_names):
+for i, town in enumerate(town_names):#lists the towns down vertically
     print(f"{i+1}. {town}")
 try:
-    start_index = int(input("➡️ Enter the number of the starting town: ")) - 1
+    start_index = int(input("➡️ Enter the number of the starting town: ")) - 1 #this depicts the starting town
     if not 0 <= start_index < len(town_names):
         raise ValueError
 except ValueError:
