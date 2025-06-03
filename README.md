@@ -120,9 +120,8 @@ client = openrouteservice.Client(key='your-api-key-here')
 
 ## 👨‍💻 Author & License
 
-This tool was developed for educational and logistical optimization purposes in Kenya. Free for educational use. Please respect the usage limits and terms of OpenRouteService.
+This tool was developed for educational and logistical optimization purposes in Kenya. Free for educational use. Please respect the usage limits and terms of Thanks to all contributors! 🎉
 
----
 
 ## 🧭 Related Links
 
